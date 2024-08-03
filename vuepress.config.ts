@@ -17,9 +17,9 @@ export default defineUserConfig({
   lang: 'zh-CN',
   public: `./public`,
   // 网站标题，标题颜色可在 src/client/css/main.css 中修改
-  title: 'FList',
+  title: '云易搜',
   // 网站的简介，有助于搜索引擎收录
-  description: 'FList - 将 GitHub Releases 以类似网盘的形式展示在网页上，方便用户下载开源软件。 支持视频、音频、图片、PDF 等文件的在线预览。',
+  description: '云易搜（yun1sou.com）-  您的一站式夸克网盘资源搜索引擎，拥有超过1万+短剧资源，一键搜索，免费转存，即刻体验海量资源的便利与丰富。',
   // 页面 <head> 标签内添加的额外标签。 不要修改/logo.png可以替换掉这个文件，删除logo.png会导致构建出错。
   head: [['link', { rel: 'icon', href: '/logo.png' }]],
   // 页面预加载，所有其它页面所需的文件都会被预拉取。这对于小型站点来说是十分有帮助的，因为它会大大提升页面切换的速度。但是在你的网站有很多页面时不建议你这么做。
@@ -27,46 +27,46 @@ export default defineUserConfig({
   shouldPrefetch: true,
   // 主题配置 FileList 是 vuepress 的一个主题，文件展示的功能全部由这个主题提供。
   theme: FileList([
-    {
-      // 挂载路径
-      mountPath: "/KnapsackToGo4下载",
-      // 文件解析器，这里使用githubReleasesFilesAnalysis,可以解析github的release文件
-      analysis: githubReleasesFilesAnalysis({
-        // 仓库所有者的用户名
-        user: "jianjianai",
-        // 仓库所有者的仓库名
-        repository: "KnapsackToGo4"
-      }),
-    },
-    {
-      mountPath: "/",
-      analysis: githubReleasesFilesAnalysis({ user: "jianjianai", repository: "FList" }),
-      // 代理，目前只有一个 就是 cloudflarePagesDownProxy,可以使用cloudflare Pages代理下载
-      // 这个是为了解决github的国内下载慢的问题，和跨域问题，建议配置，不然pdf，txt，md等文件因为跨域无法预览
-      // 如果你使用的不是 cloudflare Pages 部署需要删掉这一行，因为如果不是cloudflare Pages部署，这个代理是无法正常工作的
-      downProxy: cloudflarePagesDownProxy(),
-    },
+    // {
+    //   // 挂载路径
+    //   mountPath: "/KnapsackToGo4下载",
+    //   // 文件解析器，这里使用githubReleasesFilesAnalysis,可以解析github的release文件
+    //   analysis: githubReleasesFilesAnalysis({
+    //     // 仓库所有者的用户名
+    //     user: "jianjianai",
+    //     // 仓库所有者的仓库名
+    //     repository: "KnapsackToGo4"
+    //   }),
+    // },
+    // {
+    //   mountPath: "/",
+    //   analysis: githubReleasesFilesAnalysis({ user: "jianjianai", repository: "FList" }),
+    //   // 代理，目前只有一个 就是 cloudflarePagesDownProxy,可以使用cloudflare Pages代理下载
+    //   // 这个是为了解决github的国内下载慢的问题，和跨域问题，建议配置，不然pdf，txt，md等文件因为跨域无法预览
+    //   // 如果你使用的不是 cloudflare Pages 部署需要删掉这一行，因为如果不是cloudflare Pages部署，这个代理是无法正常工作的
+    //   downProxy: cloudflarePagesDownProxy(),
+    // },
     {
       mountPath: "/",
       // 这里使用 fileUrlTreeAnalysis 文件放到对应的文件路径中
       analysis: fileUrlTreeAnalysis({
-        "/test2/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm",
-        "/文件树测试/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm",
-        "/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm"
+        "/云易搜.app": "https://github.com/likunqi/FList/releases/download/root/yys.app"",
+        // "/文件树测试/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm",
+        // "/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm"
       }),
       downProxy: cloudflarePagesDownProxy(),//如果文件树地址下载比较慢，也可以配置代理
     },
-    {
-      mountPath: "/huggingface测试",
-      analysis: huggingFaceDatasetsAnalysis({
-        userName: "Open-Orca",
-        datasetsName: "OpenOrca",
-        branchName: "main",
-        path: "/",
-        //最大深度,如果文件夹有很多层最大递归解析多少层，默认10
-        maxDeep: 3
-      }),
-    },
+    // {
+    //   mountPath: "/huggingface测试",
+    //   analysis: huggingFaceDatasetsAnalysis({
+    //     userName: "Open-Orca",
+    //     datasetsName: "OpenOrca",
+    //     branchName: "main",
+    //     path: "/",
+    //     //最大深度,如果文件夹有很多层最大递归解析多少层，默认10
+    //     maxDeep: 3
+    //   }),
+    // },
     // ... 可以配置多个挂载路径和仓库，以此类推
   ])
 })
