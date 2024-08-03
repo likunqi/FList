@@ -50,7 +50,7 @@ export default defineUserConfig({
       mountPath: "/",
       // 这里使用 fileUrlTreeAnalysis 文件放到对应的文件路径中
       analysis: fileUrlTreeAnalysis({
-        "/云易搜.app": "https://github.com/likunqi/FList/releases/download/untagged-315df80791133bc82e3b/default.apk",
+        "/123.apk": "https://github.com/likunqi/FList/releases/download/app/123.apk",
         // "/文件树测试/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm",
         // "/文件树-测试视频1.mp4": "https://github.com/jianjianai/FList/releases/download/root/test.video.2.1080p.webm"
       }),
